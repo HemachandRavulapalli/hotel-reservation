@@ -58,6 +58,18 @@ function renderHotel() {
             roomEl.className = `room ${room.status}`;
             roomEl.textContent = room.number;
             roomEl.title = `Room ${room.number} (Floor ${room.floor})`;
+            roomEl.style.cursor = 'pointer';
+            
+            // Allow manual toggling for testing specific scenarios
+            roomEl.addEventListener('click', () => {
+                if (room.status === 'available') {
+                    room.status = 'booked';
+                } else {
+                    room.status = 'available';
+                }
+                renderHotel();
+            });
+            
             roomsContainer.appendChild(roomEl);
         });
 

@@ -47,11 +47,11 @@ function renderHotel() {
 
         const lift = document.createElement('div');
         lift.className = 'lift-shaft';
-        lift.innerHTML = `F${floor}<br>2m`;
+        lift.innerHTML = `Floor ${floor}`;
         row.appendChild(lift);
 
         const roomsContainer = document.createElement('div');
-        roomsContainer.className = 'rooms-container';
+        roomsContainer.className = 'rooms-wrapper';
         
         floorRooms.forEach(room => {
             const roomEl = document.createElement('div');
@@ -86,7 +86,7 @@ function clearNewlyBooked() {
 // Update log
 function logMsg(msg, isError = false) {
     logOutput.innerHTML = msg;
-    logOutput.style.color = isError ? '#fca5a5' : '#f8fafc';
+    logOutput.style.color = isError ? '#dc2626' : 'var(--text-main)';
 }
 
 // Booking logic
@@ -190,7 +190,7 @@ function bookRooms(count) {
     renderHotel();
     
     const roomNumbers = selectedRooms.map(r => r.number).join(', ');
-    logMsg(`✅ Successfully booked ${count} room(s): <strong style="color:var(--newly-booked)">${roomNumbers}</strong>. <br><small>Total Travel Time: ${bestTravelTime} minutes.</small>`);
+    logMsg(`✅ Successfully allocated ${count} room(s): <strong>${roomNumbers}</strong>. <br><small style="color:var(--text-muted)">Calculated Travel Time: ${bestTravelTime} minutes.</small>`);
 }
 
 // Generate random occupancy

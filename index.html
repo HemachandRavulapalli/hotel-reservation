@@ -4,49 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hotel Room Reservation System</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="app-container">
-        <header>
-            <h1>Unstop Hotel Booking</h1>
-            <p>Smart reservation system optimizing travel time.</p>
+        <header class="dashboard-header">
+            <div>
+                <h1>Hotel Reservation System</h1>
+                <p>Travel Time Optimization Engine</p>
+            </div>
+            <div class="legend">
+                <div class="legend-item"><div class="legend-box available"></div> Available</div>
+                <div class="legend-item"><div class="legend-box booked"></div> Occupied</div>
+                <div class="legend-item"><div class="legend-box newly-booked"></div> New Booking</div>
+            </div>
         </header>
 
-        <main>
-            <div class="controls-panel glass">
-                <div class="input-group">
-                    <label for="room-count">No of Rooms (1-5):</label>
-                    <input type="number" id="room-count" min="1" max="5" value="1">
-                </div>
-                <div class="button-group">
-                    <button id="btn-book" class="btn primary">Book</button>
-                    <button id="btn-random" class="btn secondary">Random Occupancy</button>
-                    <button id="btn-reset" class="btn danger">Reset</button>
-                </div>
+        <div class="panel controls-wrapper">
+            <div class="input-section">
+                <label for="room-count">Rooms to Book (1-5):</label>
+                <input type="number" id="room-count" min="1" max="5" value="1">
             </div>
+            <div class="action-buttons">
+                <button id="btn-book" class="btn-book">Allocate Rooms</button>
+                <button id="btn-random" class="btn-outline">Simulate Occupancy</button>
+                <button id="btn-reset" class="btn-outline">Clear All</button>
+            </div>
+        </div>
 
-            <div class="status-panel glass">
-                <div id="log-output">System ready. Enter number of rooms to book.</div>
-            </div>
+        <div class="panel log-container" id="log-output">
+            System ready. Awaiting booking request.
+        </div>
 
-            <div class="hotel-visualization glass">
-                <div class="hotel-header">
-                    <div class="lift-header">Lift/Stairs</div>
-                    <div class="rooms-header">Rooms (1 minute travel per room)</div>
-                </div>
-                <div id="hotel-grid">
-                    <!-- Floors will be generated here by JS -->
-                </div>
+        <div class="panel">
+            <div id="hotel-grid" class="hotel-layout">
+                <!-- Floors will be generated here by JS -->
             </div>
-            
-            <div class="legend glass">
-                <div class="legend-item"><span class="swatch available"></span> Available</div>
-                <div class="legend-item"><span class="swatch booked"></span> Booked</div>
-                <div class="legend-item"><span class="swatch newly-booked"></span> Just Booked</div>
-            </div>
-        </main>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
